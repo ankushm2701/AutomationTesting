@@ -23,12 +23,12 @@ public class FlipkartStepDefinition {
     public void userEnterEmailIdAndPassword() {
         FlipkartPageObject fpo=new FlipkartPageObject(BrowserHandling.driver);
         CommonComponent.waitUntilCondition(20, Constant.ExpectedElementCondition.ElementToBeClickable, Constant.PropertyType.Xpath, "//input[@class='_2zrpKA _1dBPDZ']","");
-        fpo.login("9177310833","ankush1234");
+        fpo.login("","");
     }
 
     @Then("^User is able see the Home Page of FlipKart\\.$")
     public void userIsAbleSeeTheHomePageOfFlipKart() {
-        String text=BrowserHandling.driver.findElement(By.xpath("//div[text()='ANKUSH']")).getText().toLowerCase();
-        Assert.assertEquals(text,"ankush");
+        String text=BrowserHandling.driver.findElement(By.xpath("//div[text()=' ']")).getText().toLowerCase();
+        Assert.assertEquals(text," ");
     }
 }
