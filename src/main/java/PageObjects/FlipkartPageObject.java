@@ -1,6 +1,5 @@
 package PageObjects;
 
-import com.testing.BrowserHandling;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,13 +13,13 @@ public class FlipkartPageObject {
     }
 
     @FindBy(how = How.XPATH, using = "//input[@class='_2zrpKA _1dBPDZ']")
-    private WebElement emailMobileNoTextBox;
+    public WebElement emailMobileNoTextBox;
 
     @FindBy(how = How.CSS, using = "input._2zrpKA._3v41xv._1dBPDZ")
-    private WebElement passwordTextBox;
+    public WebElement passwordTextBox;
 
     @FindBy(how = How.CSS, using = "button._2AkmmA._1LctnI._7UHT_c")
-    private WebElement btnLogin;
+    public WebElement btnLogin;
 
     public void login(String emailOrMobileNo, String password){
         emailMobileNoTextBox.sendKeys(emailOrMobileNo);

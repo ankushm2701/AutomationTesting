@@ -88,8 +88,6 @@ public class CommonComponent {
         Date date=new Date();
         String screenshotFile = date.toString().replace(":","_").replace(" ","_");
         String filepath = Constant.REPORT_PATH + "screenshots\\" + screenshotFile;
-
-
         try {
             File ssFile = ((TakesScreenshot)BrowserHandling.driver).getScreenshotAs(OutputType.FILE);
             FileUtils.copyFile(ssFile, new File(filepath));

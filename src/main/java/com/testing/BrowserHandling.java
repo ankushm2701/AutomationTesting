@@ -14,7 +14,7 @@ public class BrowserHandling {
     public static WebDriver driver;
 
     //Open Browser
-    public static void initializeBrowser(String browserType, String url) {
+    public static void initializeBrowser(String browserType) {
         if (browserType.toLowerCase().contains("chrome")) {
             try {
                 DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -47,8 +47,6 @@ public class BrowserHandling {
         }
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(180,TimeUnit.SECONDS);
-        //driver.manage().window().maximize();
-        driver.navigate().to(url);
-        //driver.get(url);
+        //driver.navigate().to(url);
     }
 }

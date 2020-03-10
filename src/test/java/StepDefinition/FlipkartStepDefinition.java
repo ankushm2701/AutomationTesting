@@ -9,26 +9,27 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 public class FlipkartStepDefinition {
 
     @Given("^User Navigate to \"([^\"]*)\"$")
     public void userNavigateTo(String url) throws Throwable {
-        BrowserHandling.initializeBrowser("chrome", url);
+        //BrowserHandling.initializeBrowser("chrome",url);
+        BrowserHandling.driver.navigate().to(url);
     }
 
-    @When("^User enter emailId and password$")
-    public void userEnterEmailIdAndPassword() {
+    @When("^I enter emailId and password$")
+    public void iEnterEmailIdAndPassword() {
         FlipkartPageObject fpo=new FlipkartPageObject(BrowserHandling.driver);
         CommonComponent.waitUntilCondition(20, Constant.ExpectedElementCondition.ElementToBeClickable, Constant.PropertyType.Xpath, "//input[@class='_2zrpKA _1dBPDZ']","");
         fpo.login("","");
     }
 
-    @Then("^User is able see the Home Page of FlipKart\\.$")
-    public void userIsAbleSeeTheHomePageOfFlipKart() {
+    @Then("^I is able see the Home Page of FlipKart\\.$")
+    public void iIsAbleSeeTheHomePageOfFlipKart() {
         String text=BrowserHandling.driver.findElement(By.xpath("//div[text()=' ']")).getText().toLowerCase();
         Assert.assertEquals(text," ");
+        //CommonComponent.terminate();
     }
 }
