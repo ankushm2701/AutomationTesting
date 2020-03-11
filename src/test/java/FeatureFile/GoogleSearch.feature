@@ -1,4 +1,4 @@
-Feature: Verify the result found While searching Automation Testing in Google.
+Feature: Google Search Results.
 
   @Test
   Scenario: Verify the result found While searching Automation Testing in Google
