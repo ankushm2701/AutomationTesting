@@ -5,23 +5,23 @@ import PageObjects.FlipkartPageObject;
 import com.testing.BrowserHandling;
 import com.testing.CommonComponent;
 import com.testing.Constant;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 
-public class FlipkartStepDefinition {
+public class FlipkartStepDefinition extends BrowserHandling{
 
     @Given("^User Navigate to \"([^\"]*)\"$")
     public void userNavigateTo(String url) throws Throwable {
         //BrowserHandling.initializeBrowser("chrome",url);
-        BrowserHandling.driver.navigate().to(url);
+        driver.navigate().to(url);
     }
 
     @When("^I enter emailId and password$")
     public void iEnterEmailIdAndPassword() {
-        FlipkartPageObject fpo=new FlipkartPageObject(BrowserHandling.driver);
+        FlipkartPageObject fpo=new FlipkartPageObject(driver);
         CommonComponent.waitUntilCondition(20, Constant.ExpectedElementCondition.ElementToBeClickable, Constant.PropertyType.Xpath, "//input[@class='_2zrpKA _1dBPDZ']","");
         fpo.login("","");
     }

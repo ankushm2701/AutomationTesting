@@ -7,19 +7,20 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.Date;
 
 
-public class CommonComponent {
+public class CommonComponent extends BrowserHandling{
 
     //quit window driver session
     public static void terminate() {
-        BrowserHandling.driver.quit();
+        driver.quit();
     }
 
     //Close current browser
     public static void close(){
-        BrowserHandling.driver.close();
+        driver.close();
     }
 
     public static void jsClick(WebElement element){
@@ -96,7 +97,7 @@ public class CommonComponent {
     }
 
     public static void waitUntilCondition(int second, Constant.ExpectedElementCondition expectedCondition, Constant.PropertyType findElementBy, String element, String text){
-        WebDriverWait wait=new WebDriverWait(BrowserHandling.driver, second);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(second));
         switch (expectedCondition){
             case ElementToBeSelected:
                 if(Constant.PropertyType.Id == findElementBy)
